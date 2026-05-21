@@ -1,26 +1,411 @@
 @import "tailwindcss";
 
+/* ===========================
+   NELPADAM — Design System
+   South Indian Village · Modern
+   =========================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ─── Soil-light base palette ─────────────────────
+     Kerala laterite: warm sandy clay, light red-brown
+     ─────────────────────────────────────────────── */
+  --soil-base:       #E8D4B0;   /* main background   */
+  --soil-base-alt:   #DBBF97;   /* card / alt bg     */
+  --soil-base-deep:  #CCAA80;   /* border / divider  */
+  --soil-base-pale:  #F2E6D0;   /* near-white accents*/
+
+  /* Kept for compatibility with old token names */
+  --parchment:       #E8D4B0;
+  --parchment-alt:   #DBBF97;
+  --parchment-deep:  #CCAA80;
+
+  /* Earth & soil (dark text / accents unchanged) */
+  --soil:            #2C1A0E;
+  --soil-mid:        #5C3317;
+  --clay:            #A0522D;
+  --clay-light:      #C17F3E;
+
+  /* Leaf & field */
+  --leaf:            #3A6B35;
+  --leaf-mid:        #5C8A3C;
+  --leaf-light:      #8FB87A;
+  --leaf-pale:       #C8DFB8;
+
+  /* Harvest gold */
+  --gold:            #C9930A;
+  --gold-light:      #E8B830;
+  --gold-pale:       #F5DFA0;
+
+  /* Terracotta — Kerala roof tile */
+  --terracotta:      #C1440E;
+  --terracotta-soft: #E07B4A;
+
+  /* Tamarind / dark accent */
+  --tamarind:        #6B2D0F;
+
+  /* Glassmorphism (updated to clay-warm tones) */
+  --glass-bg:        rgba(232, 212, 176, 0.70);
+  --glass-bg-dark:   rgba(44, 26, 14, 0.65);
+  --glass-border:    rgba(255, 240, 210, 0.30);
+  --glass-border-dark: rgba(92, 51, 23, 0.4);
+  --glass-blur:      blur(16px);
+  --glass-shadow:    0 8px 40px rgba(44, 26, 14, 0.14);
+
+  /* Utility */
+  --white:           #F5EAD8;
+  --ink:             #1E1208;
+
+  /* Border radius */
+  --radius-sm:  0.75rem;
+  --radius-md:  1.25rem;
+  --radius-lg:  2rem;
+  --radius-xl:  2.5rem;
+
+  /* ─── Soil gradient backgrounds ─────────────────── */
+  --grad-soil-flat:  #E8D4B0;
+  --grad-soil-light: linear-gradient(180deg, #EFE0C5 0%, #E8D4B0 40%, #DBBF97 100%);
+  --grad-soil-strata: repeating-linear-gradient(
+    180deg,
+    #E8D4B0 0px,  #E8D4B0 48px,
+    #E2CBa5 48px, #E2CBa5 50px,
+    #DBBF97 50px, #DBBF97 96px,
+    #E2CBa5 96px, #E2CBa5 98px
+  );
+  --grad-soil-diagonal: repeating-linear-gradient(
+    135deg,
+    #E8D4B0 0px,   #E8D4B0 20px,
+    #E0C9A2 20px,  #E0C9A2 21px,
+    #E8D4B0 21px,  #E8D4B0 40px,
+    #CCAA80 40px,  #CCAA80 41px
+  );
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-parchment:      var(--parchment);
+  --color-parchment-alt:  var(--parchment-alt);
+  --color-parchment-deep: var(--parchment-deep);
+  --color-soil-base:      var(--soil-base);
+  --color-soil-base-alt:  var(--soil-base-alt);
+  --color-soil:           var(--soil);
+  --color-soil-mid:       var(--soil-mid);
+  --color-clay:           var(--clay);
+  --color-clay-light:     var(--clay-light);
+  --color-leaf:           var(--leaf);
+  --color-leaf-mid:       var(--leaf-mid);
+  --color-leaf-light:     var(--leaf-light);
+  --color-leaf-pale:      var(--leaf-pale);
+  --color-gold:           var(--gold);
+  --color-gold-light:     var(--gold-light);
+  --color-gold-pale:      var(--gold-pale);
+  --color-tamarind:       var(--tamarind);
+  --color-terracotta:     var(--terracotta);
+  --color-ink:            var(--ink);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ===========================
+   Base
+   =========================== */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--soil-base);
+  color: var(--soil);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  letter-spacing: -0.01em;
+}
+
+/* ===========================
+   Glassmorphism Utilities
+   =========================== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-dark {
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-dark);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+
+.glass-leaf {
+  background: rgba(58, 107, 53, 0.78);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(143, 184, 122, 0.3);
+}
+
+/* ===========================
+   Soil Gradient Backgrounds
+   Kerala laterite earth layers
+   =========================== */
+
+/* Flat soil base */
+.soil-bg { background-color: var(--soil-base); }
+
+/* Vertical strata — subtle horizontal banding */
+.soil-strata-bg {
+  background: repeating-linear-gradient(
+    180deg,
+    #F0E2CA 0px,   #F0E2CA 1px,
+    #E8D4B0 1px,   #E8D4B0 52px,
+    #E0C89E 52px,  #E0C89E 53px,
+    #DBBF97 53px,  #DBBF97 104px,
+    #E0C89E 104px, #E0C89E 105px,
+    #E8D4B0 105px, #E8D4B0 156px,
+    #F0E2CA 156px, #F0E2CA 157px
+  );
+  background-size: 100% 157px;
+}
+
+/* Diagonal cross-hatch — dry cracked laterite */
+.soil-diagonal-bg {
+  background-color: #E8D4B0;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(160, 82, 45, 0.10) 0px, rgba(160, 82, 45, 0.10) 1px,
+      transparent 1px, transparent 28px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(160, 82, 45, 0.05) 0px, rgba(160, 82, 45, 0.05) 1px,
+      transparent 1px, transparent 28px
+    );
+}
+
+/* Radial warm-centre — sunlit soil */
+.soil-radial-bg {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    #F2E6D0 0%,
+    #E8D4B0 35%,
+    #DBBF97 70%,
+    #CCAA80 100%
+  );
+}
+
+
+   Kolam Divider
+   South Indian rangoli-inspired
+   =========================== */
+.kolam-divider {
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--gold) 0px, var(--gold) 6px,
+    transparent 6px, transparent 10px,
+    var(--clay) 10px, var(--clay) 16px,
+    transparent 16px, transparent 20px,
+    var(--leaf) 20px, var(--leaf) 26px,
+    transparent 26px, transparent 32px
+  );
+  opacity: 0.4;
+  border-radius: 2px;
+}
+
+/* Kerala tile accent stripe */
+.tile-stripe {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--terracotta) 0, var(--terracotta) 10px,
+    var(--gold) 10px, var(--gold) 12px,
+    var(--terracotta) 12px, var(--terracotta) 22px,
+    var(--soil-base-deep) 22px, var(--soil-base-deep) 24px
+  );
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* ===========================
+   Parchment Grain
+   =========================== */
+.texture-overlay {
+  position: relative;
+}
+.texture-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  z-index: 0;
+}
+
+/* ===========================
+   Crop Photo Card
+   with glass overlay
+   =========================== */
+.crop-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+}
+.crop-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 28px 72px rgba(44, 26, 14, 0.2);
+}
+.crop-card .crop-img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.crop-card:hover .crop-img {
+  transform: scale(1.07);
+}
+
+/* Glass overlay pill inside image card */
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(232, 212, 176, 0.20);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 212, 176, 0.32);
+  border-radius: 100px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #F2E6D0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.glass-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(28, 16, 6, 0.94) 0%,
+    rgba(28, 16, 6, 0.55) 55%,
+    transparent 100%
+  );
+}
+
+/* ===========================
+   Support Button
+   =========================== */
+.support-btn {
+  position: relative;
+  overflow: visible;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.support-btn .farmer-emojis {
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+.support-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 48px rgba(44, 26, 14, 0.28);
+}
+.support-btn:hover .farmer-emojis {
+  opacity: 1;
+  top: -3.2rem;
+  animation: emojiPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.support-btn:active { transform: scale(0.97); }
+
+@keyframes emojiPop {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(8px) scale(0.7); }
+  60%  { opacity: 1; transform: translateX(-50%) translateY(-6px) scale(1.15); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+.support-btn.celebrate .farmer-emojis {
+  animation: farmerCelebrate 0.9s ease forwards;
+}
+@keyframes farmerCelebrate {
+  0%   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+  40%  { transform: translateX(-50%) translateY(-20px) scale(1.4) rotate(5deg); }
+  70%  { transform: translateX(-50%) translateY(-32px) scale(1.6) rotate(-3deg); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-52px) scale(0.8); }
+}
+
+/* ===========================
+   Chapter label
+   =========================== */
+.chapter-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ===========================
+   Harvest card (simple list)
+   =========================== */
+.harvest-card {
+  border: 1.5px solid var(--soil-base-deep);
+  position: relative;
+  background: var(--soil-base-pale, #F2E6D0);
+  border-radius: var(--radius-md);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+.harvest-card:hover {
+  border-color: var(--clay);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(44, 26, 14, 0.12);
+}
+
+/* ===========================
+   WhatsApp pulse
+   =========================== */
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+  50%       { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+}
+.wa-pulse { animation: waPulse 2.2s infinite; }
+
+/* ===========================
+   Misc animations
+   =========================== */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal { animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.float { animation: gentleFloat 3.5s ease-in-out infinite; }
+
+@keyframes fieldSway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%       { transform: rotate(1.5deg); }
+}
+.sway { animation: fieldSway 4s ease-in-out infinite; transform-origin: bottom center; }
+
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

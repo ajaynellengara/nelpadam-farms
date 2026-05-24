@@ -13,7 +13,7 @@ export default function EnquirySection() {
     const msg = encodeURIComponent(
       `Namaskaram Govindan! 🙏\n\nI'd like to pre-order from Nelpadam Farms.\n\nName: ${form.name}\nCity: ${form.city}\nProduct: ${p ? p.name : form.product || "General enquiry"}\nQuantity: ${form.qty} unit(s)\n\nMessage: ${form.message || "Please share harvest timeline and payment details."}\n\n— Sent from nelpadam.in`
     );
-    return `https://wa.me/919876543210?text=${msg}`;
+    return `https://wa.me/918301061753?text=${msg}`;
   };
 
   const handleSubmit = (e) => {
@@ -56,7 +56,7 @@ export default function EnquirySection() {
             </div>
 
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918301061753"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp text-sm"

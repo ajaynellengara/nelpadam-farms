@@ -39,7 +39,7 @@ export default function Footer() {
           <div>
             <h5 className="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Connect</h5>
             <ul className="space-y-2 text-sm text-ink-light">
-              <li><a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="hover:text-leaf-light transition-colors">WhatsApp Govindan</a></li>
+              <li><a href="https://wa.me/918301061753" target="_blank" rel="noopener noreferrer" className="hover:text-leaf-light transition-colors">WhatsApp Govindan</a></li>
               <li><span>Kottarakkara, Kerala</span></li>
               <li><span>hello@nelpadam.in</span></li>
             </ul>

@@ -120,7 +120,7 @@ export default function ProductDetail({ product }) {
     const msg = encodeURIComponent(
       `Namaskaram Govindan! 🙏\n\nI'd like to pre-order:\n\nProduct: ${product.name} (${product.localName})\nVariant: ${v.label} — ${v.price}\nQty: ${qty} unit(s)\n\n${product.whatsappMsg}`
     );
-    return `https://wa.me/919876543210?text=${msg}`;
+    return `https://wa.me/918301061753?text=${msg}`;
   };
 
   return (

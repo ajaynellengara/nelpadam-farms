@@ -5,88 +5,68 @@ import { products } from "@/data/products";
 
 export default function ProductsSlider() {
   return (
-    <section id="crops" className="py-24 soil-strata-bg texture-overlay overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10">
-        {/* Chapter header */}
-        <div className="flex items-start gap-5 mb-5">
-          <div className="font-serif text-8xl font-bold text-[#CCAA80] select-none leading-none shrink-0 -mt-2">02</div>
-          <div>
-            <div className="chapter-label text-[#A0522D] mb-2">What's Growing</div>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2C1A0E] leading-tight">
-              Pre-Order the Harvest
-            </h2>
-          </div>
+    <section id="crops" className="py-24 lg:py-32 bg-cream overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+        <div className="flex items-center gap-4 mb-4">
+          <span className="section-sub">Chapter 02</span>
+          <span className="w-8 h-px bg-clay/30" />
+          <h2 className="section-heading">Pre-Order the Harvest</h2>
         </div>
 
-        <p className="text-[#5C3317] text-base mb-4 max-w-xl ml-[calc(5.5rem+1.25rem)]">
-          These crops are growing right now on Govindan's land. Pre-order your share — he harvests, packs, and ships directly when ready.
+        <p className="text-ink-mid text-base mb-12 max-w-xl">
+          These crops are growing right now on Govindan&apos;s land. Pre-order your share — he harvests, packs, and ships directly when ready.
         </p>
 
-        {/* Kolam divider */}
-        <div className="kolam-divider mb-12 ml-[calc(5.5rem+1.25rem)]" />
-
-        {/* Product photo grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
-              className="crop-card group block aspect-[3/4] cursor-pointer"
+              className="group block rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 bg-white"
             >
-              {/* Photo */}
-              <div className="absolute inset-0">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="crop-img object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-              {/* Top pills */}
-              <div className="absolute top-3 left-3 right-3 flex items-start justify-between z-10">
-                <span className="glass-pill">{product.badge}</span>
-                <span className="glass-pill">⏳ {product.harvestMonths}mo</span>
-              </div>
-
-              {/* Glass info overlay */}
-              <div className="glass-card-overlay z-10">
-                {/* Field status */}
-                <div className="text-[10px] text-[#8FB87A] font-medium mb-1.5 tracking-wide">
-                  {product.fieldStatus}
+                <div className="absolute top-3 left-3 flex gap-2">
+                  <span className="bg-white/90 backdrop-blur-sm text-ink text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    {product.badge}
+                  </span>
+                  <span className="bg-white/90 backdrop-blur-sm text-ink-mid text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                    ⏳ {product.harvestMonths}mo
+                  </span>
                 </div>
+              </div>
 
-                {/* Local name */}
-                <div className="text-[#C9930A] text-xs font-semibold tracking-wider uppercase mb-1">
+              <div className="p-5">
+                <div className="text-ink-light text-[10px] font-semibold tracking-wider uppercase mb-0.5">
                   {product.localName}
                 </div>
-
-                <h3 className="font-serif text-2xl font-bold text-white leading-tight mb-2 group-hover:text-[#F0C860] transition-colors">
+                <h3 className="font-serif text-xl font-bold text-ink mb-1 group-hover:text-leaf transition-colors">
                   {product.name}
                 </h3>
-
-                <p className="text-[#DBBF97] text-xs leading-relaxed mb-3 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-ink-light text-xs leading-relaxed line-clamp-2 mb-3">
                   {product.shortDesc}
                 </p>
 
-                {/* Price + count row */}
-                <div className="flex items-end justify-between border-t border-white/10 pt-2.5">
+                <div className="flex items-end justify-between pt-3 border-t border-cream-deep">
                   <div>
-                    <div className="font-serif text-xl font-bold text-white">{product.price}</div>
-                    <div className="text-white/50 text-[10px]">{product.unit}</div>
+                    <div className="font-serif text-xl font-bold text-ink">{product.price}</div>
+                    <div className="text-ink-pale text-[10px]">{product.unit}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-[#8FB87A] text-xs font-bold">{product.preorderCount}</div>
-                    <div className="text-white/40 text-[10px]">pre-ordered</div>
+                    <div className="text-leaf text-xs font-bold">{product.preorderCount}</div>
+                    <div className="text-ink-pale text-[10px]">pre-ordered</div>
                   </div>
                 </div>
 
-                {/* Pre-order CTA */}
-                <div
-                  className="mt-3 text-center py-2 rounded-full text-xs font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0"
-                  style={{ background: product.color, color: "#F2E6D0" }}
-                >
+                <div className="mt-3 text-center py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all duration-300 bg-cream-alt text-ink-mid group-hover:bg-leaf group-hover:text-white">
                   Pre-Order Now →
                 </div>
               </div>
@@ -94,11 +74,7 @@ export default function ProductsSlider() {
           ))}
         </div>
 
-        {/* Tile stripe accent */}
-        <div className="tile-stripe mt-12 opacity-60" />
-
-        {/* Bottom note */}
-        <p className="text-center text-[#8B6040] text-xs mt-5 italic">
+        <p className="text-center text-ink-light text-xs mt-8 italic">
           * No advance payment. You pay only when Govindan ships your harvest.
         </p>
       </div>

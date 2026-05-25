@@ -12,13 +12,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Nelpadam Farms — Pre-Order Govindan's Harvest. Support Rural Kerala.</title>
+        <title>Nelpadam Farms — Pre-Order Govindan&apos;s Harvest. Support Rural Kerala.</title>
         <meta
           name="description"
-          content="Govindan Nair farms pepper, tamarind and turmeric on his family's 3.5-acre plot in Kottarakkara, Kerala. Pre-order his harvest directly — no middlemen, fair pay to the farmer."
+          content="Govindan Nair farms pepper, tamarind and turmeric on his family&apos;s 3.5-acre plot in Kottarakkara, Kerala. Pre-order his harvest directly — no middlemen, fair pay to the farmer."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Nelpadam Farms — Pre-Order Govindan's Harvest" />
+        <meta property="og:title" content="Nelpadam Farms — Pre-Order Govindan&apos;s Harvest" />
         <meta property="og:description" content="Farm-direct spices from rural Kerala. Pre-order the harvest. Support the farmer." />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />

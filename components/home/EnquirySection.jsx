@@ -1,11 +1,27 @@
 "use client";
-import { useState } from "react";
-import { products } from "@/data/products";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { products, farmer } from "@/data/products";
 
 export default function EnquirySection() {
   const [form, setForm] = useState({ name: "", city: "", product: "", qty: "1", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [celebrated, setCelebrated] = useState(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.isReady) {
+      const { product, qty } = router.query;
+      if (product || qty) {
+        setForm((prev) => ({
+          ...prev,
+          product: product ? String(product) : prev.product,
+          qty: qty ? String(qty) : prev.qty,
+        }));
+      }
+    }
+  }, [router.isReady, router.query]);
 
   const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
@@ -14,7 +30,7 @@ export default function EnquirySection() {
     const msg = encodeURIComponent(
       `Namaskaram Govindan! 🙏\n\nI'd like to pre-order from Nelpadam Farms.\n\nName: ${form.name}\nCity: ${form.city}\nProduct: ${p ? p.name : form.product || "General enquiry"}\nQuantity: ${form.qty} unit(s)\n\nMessage: ${form.message || "Please share harvest timeline and payment details."}\n\n— Sent from nelpadam.in`
     );
-    return `https://wa.me/919876543210?text=${msg}`;
+    return `https://wa.me/${farmer.whatsApp}?text=${msg}`;
   };
 
   const handleSubmit = (e) => {
@@ -25,18 +41,18 @@ export default function EnquirySection() {
   };
 
   return (
-    <section id="preorder" className="py-20 bg-[#2C1A0E] relative overflow-hidden texture-overlay">
+    <section id="preorder" className="py-20 bg-[#0B1B17] relative overflow-hidden texture-overlay border-b border-soil-base-deep">
       {/* Decorative circles */}
-      <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-[#C9930A]/8 blur-3xl pointer-events-none"/>
-      <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-[#3A6B35]/10 blur-2xl pointer-events-none"/>
+      <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-gold/5 blur-3xl pointer-events-none"/>
+      <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-leaf/10 blur-2xl pointer-events-none"/>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10">
         {/* Chapter header */}
         <div className="flex items-center gap-4 mb-14">
-          <div className="font-serif text-7xl font-bold text-[#5C3317]/40 select-none leading-none">04</div>
+          <div className="font-serif text-7xl font-bold text-white/5 select-none leading-none">04</div>
           <div>
-            <div className="chapter-label text-[#C9930A] mb-1">Pre-Order Your Share</div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#E8D4B0]">
+            <div className="chapter-label text-gold mb-1">Pre-Order Your Share</div>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-soil-base">
               Reserve your harvest
             </h2>
           </div>
@@ -45,7 +61,7 @@ export default function EnquirySection() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
           {/* Left — messaging (2/5) */}
           <div className="lg:col-span-2">
-            <p className="text-[#DBBF97] text-lg leading-relaxed mb-8 font-serif italic">
+            <p className="text-leaf-pale/85 text-lg leading-relaxed mb-8 font-serif italic">
               Fill this form and Govindan will send you a WhatsApp message confirming your pre-order, harvest date, and payment link.
             </p>
 
@@ -58,12 +74,12 @@ export default function EnquirySection() {
                 { icon: "💰", title: "Pay at shipping", desc: "No advance. Pay via UPI, bank transfer, or COD when it ships." },
               ].map(({ icon, title, desc }) => (
                 <div key={title} className="flex gap-4">
-                  <div className="w-9 h-9 flex-shrink-0 rounded-xl bg-[#3A6B35]/30 flex items-center justify-center text-lg">
+                  <div className="w-9 h-9 flex-shrink-0 rounded-xl bg-leaf-mid/30 flex items-center justify-center text-lg shadow-sm border border-leaf-light/10">
                     {icon}
                   </div>
                   <div>
-                    <div className="text-[#E8D4B0] text-sm font-semibold">{title}</div>
-                    <div className="text-[#8B6040] text-xs leading-relaxed">{desc}</div>
+                    <div className="text-soil-base text-sm font-semibold">{title}</div>
+                    <div className="text-leaf-pale/60 text-xs leading-relaxed">{desc}</div>
                   </div>
                 </div>
               ))}
@@ -71,7 +87,7 @@ export default function EnquirySection() {
 
             {/* Direct WhatsApp */}
             <a
-              href="https://wa.me/919876543210"
+              href={`https://wa.me/${farmer.whatsApp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="wa-pulse support-btn inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-6 py-4 rounded-full shadow-lg text-sm"
@@ -85,16 +101,16 @@ export default function EnquirySection() {
           </div>
 
           {/* Right — Form (3/5) */}
-          <div className="lg:col-span-3 bg-[#E8D4B0] rounded-3xl p-8 lg:p-10 shadow-2xl">
+          <div className="lg:col-span-3 bg-soil-base-alt rounded-3xl p-8 lg:p-10 shadow-2xl border border-soil-base-deep">
             {submitted ? (
               <div className="text-center py-10">
                 {/* Farmer celebration */}
                 <div className="text-6xl mb-4 animate-[bounce_0.5s_ease_3]">🧑‍🌾🎉</div>
-                <h3 className="font-serif text-2xl font-bold text-[#2C1A0E] mb-3">
+                <h3 className="font-serif text-2xl font-bold text-soil mb-3">
                   Govindan is doing a happy dance! 🕺
                 </h3>
-                <p className="text-[#5C3317] mb-2">Your pre-order request has been noted.</p>
-                <p className="text-[#5C3317] text-sm mb-8">
+                <p className="text-soil-mid mb-2">Your pre-order request has been noted.</p>
+                <p className="text-soil-mid text-sm mb-8">
                   Click below to send it directly to Govindan on WhatsApp — he'll reply within 2 hours.
                 </p>
                 <a
@@ -112,57 +128,63 @@ export default function EnquirySection() {
               </div>
             ) : (
               <>
-                <h3 className="font-serif text-2xl font-bold text-[#2C1A0E] mb-1">Pre-Order Form</h3>
-                <p className="text-[#5C3317] text-sm mb-7">
+                <h3 className="font-serif text-2xl font-bold text-soil mb-1">Pre-Order Form</h3>
+                <p className="text-soil-mid text-sm mb-7">
                   Takes 30 seconds. Govindan will confirm on WhatsApp.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="chapter-label text-[#A0522D] block mb-1.5">Your Name *</label>
+                      <label className="chapter-label text-clay block mb-1.5">Your Name *</label>
                       <input type="text" name="name" required value={form.name} onChange={handleChange}
                         placeholder="Priya Mehta"
-                        className="w-full border-2 border-[#DBBF97] rounded-xl px-4 py-3 text-[#2C1A0E] text-sm bg-[#F2E6D0] placeholder:text-[#C8A87A] focus:outline-none focus:border-[#C9930A] transition-colors"/>
+                        className="w-full border border-soil-base-deep rounded-xl px-4 py-3 text-soil text-sm bg-white placeholder:text-soil-mid/30 focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay transition-all shadow-sm"/>
                     </div>
                     <div>
-                      <label className="chapter-label text-[#A0522D] block mb-1.5">Your City *</label>
+                      <label className="chapter-label text-clay block mb-1.5">Your City *</label>
                       <input type="text" name="city" required value={form.city} onChange={handleChange}
                         placeholder="Mumbai"
-                        className="w-full border-2 border-[#DBBF97] rounded-xl px-4 py-3 text-[#2C1A0E] text-sm bg-[#F2E6D0] placeholder:text-[#C8A87A] focus:outline-none focus:border-[#C9930A] transition-colors"/>
+                        className="w-full border border-soil-base-deep rounded-xl px-4 py-3 text-soil text-sm bg-white placeholder:text-soil-mid/30 focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay transition-all shadow-sm"/>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="chapter-label text-[#A0522D] block mb-1.5">Product</label>
-                      <select name="product" value={form.product} onChange={handleChange}
-                        className="w-full border-2 border-[#DBBF97] rounded-xl px-4 py-3 text-[#2C1A0E] text-sm bg-[#F2E6D0] focus:outline-none focus:border-[#C9930A] transition-colors cursor-pointer appearance-none">
-                        <option value="">Select crop...</option>
-                        {products.map((p) => (
-                          <option key={p.slug} value={p.slug}>{p.name} — {p.price}/{p.unit}</option>
-                        ))}
-                      </select>
+                      <label className="chapter-label text-clay block mb-1.5">Product</label>
+                      <div className="relative">
+                        <select name="product" value={form.product} onChange={handleChange}
+                          className="w-full border border-soil-base-deep rounded-xl px-4 py-3 text-soil text-sm bg-white focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay transition-all cursor-pointer appearance-none shadow-sm">
+                          <option value="">Select crop...</option>
+                          {products.map((p) => (
+                            <option key={p.slug} value={p.slug}>{p.name} — {p.price}/{p.unit}</option>
+                          ))}
+                        </select>
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-soil-mid/60 text-xs">▼</div>
+                      </div>
                     </div>
                     <div>
-                      <label className="chapter-label text-[#A0522D] block mb-1.5">Quantity</label>
-                      <select name="qty" value={form.qty} onChange={handleChange}
-                        className="w-full border-2 border-[#DBBF97] rounded-xl px-4 py-3 text-[#2C1A0E] text-sm bg-[#F2E6D0] focus:outline-none focus:border-[#C9930A] transition-colors cursor-pointer appearance-none">
-                        {["1","2","3","4","5","6+"].map(q => <option key={q} value={q}>{q} unit{q !== "1" ? "s" : ""}</option>)}
-                      </select>
+                      <label className="chapter-label text-clay block mb-1.5">Quantity</label>
+                      <div className="relative">
+                        <select name="qty" value={form.qty} onChange={handleChange}
+                          className="w-full border border-soil-base-deep rounded-xl px-4 py-3 text-soil text-sm bg-white focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay transition-all cursor-pointer appearance-none shadow-sm">
+                          {["1","2","3","4","5","6+"].map(q => <option key={q} value={q}>{q} unit{q !== "1" ? "s" : ""}</option>)}
+                        </select>
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-soil-mid/60 text-xs">▼</div>
+                      </div>
                     </div>
                   </div>
 
                   <div>
-                    <label className="chapter-label text-[#A0522D] block mb-1.5">Message to Govindan</label>
+                    <label className="chapter-label text-clay block mb-1.5">Message to Govindan</label>
                     <textarea name="message" rows={3} value={form.message} onChange={handleChange}
                       placeholder="Any questions about the crop, delivery, or payment..."
-                      className="w-full border-2 border-[#DBBF97] rounded-xl px-4 py-3 text-[#2C1A0E] text-sm bg-[#F2E6D0] placeholder:text-[#C8A87A] focus:outline-none focus:border-[#C9930A] transition-colors resize-none"/>
+                      className="w-full border border-soil-base-deep rounded-xl px-4 py-3 text-soil text-sm bg-white placeholder:text-soil-mid/30 focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay transition-all resize-none shadow-sm"/>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <button type="submit"
-                      className={`support-btn flex-1 bg-[#2C1A0E] text-[#E8D4B0] font-bold py-4 rounded-xl hover:bg-[#5C3317] transition-all shadow-md ${celebrated ? "celebrate" : ""}`}>
+                      className={`support-btn flex-1 bg-soil text-soil-base font-bold py-4 rounded-xl hover:bg-clay-light transition-all shadow-md ${celebrated ? "celebrate" : ""}`}>
                       <span className="farmer-emojis">🧑‍🌾😊🌾✨</span>
                       Send Pre-Order Request
                     </button>

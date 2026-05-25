@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { farmer } from "@/data/products";
 
 // What happens when you pre-order — journey steps
 const journey = [
@@ -8,44 +9,44 @@ const journey = [
     icon: "📱",
     farmer: "🧑‍🌾",
     farmerMood: "Govindan gets notified — he knows exactly how much to harvest.",
-    color: "#3A6B35",
-    bg: "#C8DFB8",
+    color: "#1E463E",
+    bg: "#E2ECE9",
   },
   {
     step: "Govindan harvests",
     icon: "🌾",
     farmer: "😊",
     farmerMood: "He picks only what was pre-ordered. Zero waste. Zero guessing.",
-    color: "#C9930A",
-    bg: "#F5DFA0",
+    color: "#F59E0B",
+    bg: "#FEF3C7",
   },
   {
     step: "Packed by hand",
     icon: "📦",
     farmer: "🧑‍🌾",
     farmerMood: "Shanthi, his wife, packs each order with a small note inside.",
-    color: "#A0522D",
-    bg: "#F5E6D3",
+    color: "#C25B3E",
+    bg: "#FDF2F0",
   },
   {
     step: "Ships direct to you",
     icon: "🚚",
     farmer: "🎉",
     farmerMood: "No warehouse. No superstore. From their hands to yours.",
-    color: "#6B2D0F",
-    bg: "#F0D4B8",
+    color: "#0B1B17",
+    bg: "#F4F1EA",
   },
 ];
 
 const middlemanChart = [
-  { label: "Middlemen get", amount: "₹620", percent: 77, color: "#E07B39", isMiddleman: true },
-  { label: "Govindan gets", amount: "₹180", percent: 23, color: "#3A6B35", isMiddleman: false },
+  { label: "Middlemen get", amount: "₹620", percent: 77, color: "#C25B3E", isMiddleman: true },
+  { label: "Govindan gets", amount: "₹180", percent: 23, color: "#1E463E", isMiddleman: false },
 ];
 
 const nelpadamChart = [
-  { label: "Platform fee", amount: "₹80", percent: 10, color: "#C9930A", isMiddleman: true },
-  { label: "Govindan gets", amount: "₹620", percent: 77, color: "#3A6B35", isMiddleman: false },
-  { label: "Shipping", amount: "₹100", percent: 13, color: "#A0522D", isMiddleman: true },
+  { label: "Platform fee", amount: "₹80", percent: 10, color: "#F59E0B", isMiddleman: true },
+  { label: "Govindan gets", amount: "₹620", percent: 77, color: "#1E463E", isMiddleman: false },
+  { label: "Shipping", amount: "₹100", percent: 13, color: "#C25B3E", isMiddleman: true },
 ];
 
 export default function BenefitsZigZag() {
@@ -58,15 +59,15 @@ export default function BenefitsZigZag() {
   };
 
   return (
-    <section id="impact" className="bg-[#E8D4B0] texture-overlay overflow-hidden">
+    <section id="impact" className="bg-soil-base texture-overlay overflow-hidden py-20 border-b border-soil-base-deep">
       {/* Chapter 03 — What happens when you buy */}
-      <div className="relative z-10 py-20">
+      <div className="relative z-10">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <div className="flex items-center gap-4 mb-14">
-            <div className="font-serif text-7xl font-bold text-[#DBBF97] select-none leading-none">03</div>
+            <div className="font-serif text-7xl font-bold text-soil-base-alt select-none leading-none">03</div>
             <div>
-              <div className="chapter-label text-[#A0522D] mb-1">Your Impact</div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#2C1A0E]">
+              <div className="chapter-label text-clay mb-1">Your Impact</div>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-soil">
                 What happens when you pre-order
               </h2>
             </div>
@@ -75,7 +76,7 @@ export default function BenefitsZigZag() {
           {/* Journey steps */}
           <div className="relative mb-20">
             {/* Connector line */}
-            <div className="absolute top-10 left-10 right-10 h-0.5 bg-[#CCAA80] hidden lg:block" />
+            <div className="absolute top-10 left-10 right-10 h-0.5 bg-soil-base-deep hidden lg:block" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {journey.map((j, i) => (
@@ -97,8 +98,8 @@ export default function BenefitsZigZag() {
                     className="rounded-2xl p-4 border-2 border-transparent transition-all duration-300 group-hover:border-current"
                     style={{ color: j.color }}
                   >
-                    <div className="font-bold text-base text-[#2C1A0E] mb-2">{j.step}</div>
-                    <p className="text-[#5C3317] text-sm leading-relaxed">{j.farmerMood}</p>
+                    <div className="font-bold text-base text-soil mb-2">{j.step}</div>
+                    <p className="text-soil-mid text-sm leading-relaxed">{j.farmerMood}</p>
                   </div>
                 </button>
               ))}
@@ -108,18 +109,18 @@ export default function BenefitsZigZag() {
           {/* Middleman comparison */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* Without Nelpadam */}
-            <div className="bg-[#DBBF97] rounded-3xl p-7 border border-[#CCAA80]">
-              <div className="chapter-label text-[#A0522D] mb-3">Without Nelpadam</div>
-              <div className="text-[#2C1A0E] font-serif text-lg font-bold mb-1">You pay ₹800/kg</div>
-              <p className="text-[#5C3317] text-sm mb-5">Of every ₹800 you spend on pepper:</p>
+            <div className="bg-soil-base-alt rounded-3xl p-7 border border-soil-base-deep shadow-sm">
+              <div className="chapter-label text-clay mb-3">Without Nelpadam</div>
+              <div className="text-soil font-serif text-lg font-bold mb-1">You pay ₹800/kg</div>
+              <p className="text-soil-mid text-sm mb-5">Of every ₹800 you spend on pepper:</p>
               <div className="space-y-3">
                 {middlemanChart.map((b, i) => (
                   <div key={i}>
                     <div className="flex justify-between text-sm mb-1">
-                      <span className="text-[#5C3317]">{b.label}</span>
-                      <span className="font-bold text-[#2C1A0E]">{b.amount}</span>
+                      <span className="text-soil-mid">{b.label}</span>
+                      <span className="font-bold text-soil">{b.amount}</span>
                     </div>
-                    <div className="h-3 rounded-full bg-[#CCAA80] overflow-hidden">
+                    <div className="h-3 rounded-full bg-soil-base-deep overflow-hidden">
                       <div
                         className="h-full rounded-full transition-all duration-700"
                         style={{ width: `${b.percent}%`, background: b.color }}
@@ -128,27 +129,27 @@ export default function BenefitsZigZag() {
                   </div>
                 ))}
               </div>
-              <div className="mt-5 text-xs text-[#8B6040] italic">
+              <div className="mt-5 text-xs text-soil-mid italic">
                 Govindan takes home 22% of what you paid.
               </div>
             </div>
 
             {/* With Nelpadam */}
-            <div className="bg-[#2C1A0E] rounded-3xl p-7 border border-[#5C3317] relative overflow-hidden">
-              <div className="absolute top-4 right-4 bg-[#C9930A] text-[#2C1A0E] text-xs font-bold px-3 py-1 rounded-full">
+            <div className="bg-soil rounded-3xl p-7 border border-soil-mid relative overflow-hidden shadow-lg">
+              <div className="absolute top-4 right-4 bg-gold text-soil text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                 With Nelpadam
               </div>
-              <div className="chapter-label text-[#C9930A] mb-3">With Nelpadam</div>
-              <div className="text-[#E8D4B0] font-serif text-lg font-bold mb-1">You pay ₹800/kg</div>
-              <p className="text-[#DBBF97] text-sm mb-5">Of the same ₹800:</p>
+              <div className="chapter-label text-gold mb-3">With Nelpadam</div>
+              <div className="text-soil-base font-serif text-lg font-bold mb-1">You pay ₹800/kg</div>
+              <p className="text-leaf-pale/80 text-sm mb-5">Of the same ₹800:</p>
               <div className="space-y-3">
                 {nelpadamChart.map((b, i) => (
                   <div key={i}>
                     <div className="flex justify-between text-sm mb-1">
-                      <span className="text-[#DBBF97]">{b.label}</span>
-                      <span className="font-bold text-[#E8D4B0]">{b.amount}</span>
+                      <span className="text-leaf-pale/80">{b.label}</span>
+                      <span className="font-bold text-soil-base">{b.amount}</span>
                     </div>
-                    <div className="h-3 rounded-full bg-[#5C3317] overflow-hidden">
+                    <div className="h-3 rounded-full bg-soil-mid overflow-hidden">
                       <div
                         className="h-full rounded-full"
                         style={{ width: `${b.percent}%`, background: b.color }}
@@ -157,7 +158,7 @@ export default function BenefitsZigZag() {
                   </div>
                 ))}
               </div>
-              <div className="mt-5 text-xs text-[#8FB87A] italic">
+              <div className="mt-5 text-xs text-leaf-pale font-medium italic">
                 Govindan takes home 77% of what you paid. 🎉
               </div>
             </div>
@@ -165,10 +166,10 @@ export default function BenefitsZigZag() {
 
           {/* The big CTA — with farmer smile button */}
           <div className="text-center">
-            <p className="font-serif text-2xl md:text-3xl text-[#2C1A0E] font-bold mb-3">
+            <p className="font-serif text-2xl md:text-3xl text-soil font-bold mb-3">
               Ready to support Govindan?
             </p>
-            <p className="text-[#5C3317] mb-8 text-base">
+            <p className="text-soil-mid mb-8 text-base">
               Pre-order costs nothing upfront. You pay only when your harvest ships.
             </p>
 
@@ -176,14 +177,14 @@ export default function BenefitsZigZag() {
               <a
                 href="#crops"
                 onClick={handleSupportClick}
-                className={`support-btn inline-flex items-center gap-3 bg-[#3A6B35] text-[#F2E6D0] font-bold px-10 py-5 rounded-full text-lg shadow-xl ${celebrated ? "celebrate" : ""}`}
+                className={`support-btn inline-flex items-center gap-3 bg-leaf text-white font-bold px-10 py-5 rounded-full text-lg shadow-xl hover:bg-clay-light transition-all ${celebrated ? "celebrate" : ""}`}
               >
                 <span className="farmer-emojis">🧑‍🌾😊🌾🎉✨</span>
                 Yes! Support Govindan →
               </a>
 
               <a
-                href="https://wa.me/919876543210"
+                href={`https://wa.me/${farmer.whatsApp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="wa-pulse support-btn inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-7 py-4 rounded-full text-base shadow-lg"
@@ -197,13 +198,13 @@ export default function BenefitsZigZag() {
             </div>
 
             {/* Reaction row */}
-            <div className="flex flex-wrap justify-center gap-3 mt-8 text-sm text-[#5C3317]">
+            <div className="flex flex-wrap justify-center gap-3 mt-8 text-sm text-soil-mid">
               {[
                 "🧑‍🌾 Govindan smiles every time someone pre-orders",
                 "🌾 Your purchase lets him plan with confidence",
                 "❤️ No advance payment until harvest",
               ].map((t) => (
-                <span key={t} className="bg-[#DBBF97] rounded-full px-4 py-2">{t}</span>
+                <span key={t} className="bg-soil-base-alt rounded-full px-4 py-2 shadow-sm border border-soil-base-deep">{t}</span>
               ))}
             </div>
           </div>

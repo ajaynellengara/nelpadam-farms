@@ -9,6 +9,8 @@ export const farmer = {
   quote:
     "My grandfather planted the first tamarind tree in 1948. I am still farming the same land. My hands know this soil.",
   emoji: "🧑‍🌾",
+  whatsApp: "918301061753",
+  displayPhone: "+91 83010 61753",
 };
 
 export const products = [

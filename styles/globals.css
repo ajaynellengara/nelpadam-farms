@@ -5,54 +5,54 @@
    South Indian Village · Modern
    =========================== */
 :root {
-  /* ─── Soil-light base palette ─────────────────────
-     Kerala laterite: warm sandy clay, light red-brown
+  /* ─── Premium Cream Base Palette ─────────────────────
+     Clean, modern organic farm aesthetic
      ─────────────────────────────────────────────── */
-  --soil-base:       #E8D4B0;   /* main background   */
-  --soil-base-alt:   #DBBF97;   /* card / alt bg     */
-  --soil-base-deep:  #CCAA80;   /* border / divider  */
-  --soil-base-pale:  #F2E6D0;   /* near-white accents*/
+  --soil-base:       #FAF9F6;   /* clean off-white / main bg */
+  --soil-base-alt:   #F4F1EA;   /* soft premium cream / card bg */
+  --soil-base-deep:  #E5E0D5;   /* elegant warm gray / border & divider */
+  --soil-base-pale:  #FFFFFF;   /* pure white highlights */
 
   /* Kept for compatibility with old token names */
-  --parchment:       #E8D4B0;
-  --parchment-alt:   #DBBF97;
-  --parchment-deep:  #CCAA80;
+  --parchment:       #FAF9F6;
+  --parchment-alt:   #F4F1EA;
+  --parchment-deep:  #E5E0D5;
 
-  /* Earth & soil (dark text / accents unchanged) */
-  --soil:            #2C1A0E;
-  --soil-mid:        #5C3317;
-  --clay:            #A0522D;
-  --clay-light:      #C17F3E;
+  /* Forest Green Brand Colors */
+  --soil:            #142923;   /* deep near-black forest green / main text */
+  --soil-mid:        #2B4E44;   /* premium dark sage green / secondary text */
+  --clay:            #1E463E;   /* main accent forest green */
+  --clay-light:      #2A5A50;   /* hover accent green */
 
-  /* Leaf & field */
-  --leaf:            #3A6B35;
-  --leaf-mid:        #5C8A3C;
-  --leaf-light:      #8FB87A;
-  --leaf-pale:       #C8DFB8;
+  /* Leaf & Field tones */
+  --leaf:            #1E463E;
+  --leaf-mid:        #3B6B5E;
+  --leaf-light:      #5E8F82;
+  --leaf-pale:       #E2ECE9;
 
-  /* Harvest gold */
-  --gold:            #C9930A;
-  --gold-light:      #E8B830;
-  --gold-pale:       #F5DFA0;
+  /* Harvest Gold */
+  --gold:            #F59E0B;
+  --gold-light:      #FBBF24;
+  --gold-pale:       #FEF3C7;
 
-  /* Terracotta — Kerala roof tile */
-  --terracotta:      #C1440E;
-  --terracotta-soft: #E07B4A;
+  /* Coral Terracotta */
+  --terracotta:      #C25B3E;
+  --terracotta-soft: #E38D73;
 
-  /* Tamarind / dark accent */
-  --tamarind:        #6B2D0F;
+  /* Deep Spruce Accent */
+  --tamarind:        #0B1B17;
 
-  /* Glassmorphism (updated to clay-warm tones) */
-  --glass-bg:        rgba(232, 212, 176, 0.70);
-  --glass-bg-dark:   rgba(44, 26, 14, 0.65);
-  --glass-border:    rgba(255, 240, 210, 0.30);
-  --glass-border-dark: rgba(92, 51, 23, 0.4);
+  /* Glassmorphism */
+  --glass-bg:        rgba(255, 255, 255, 0.85);
+  --glass-bg-dark:   rgba(20, 41, 35, 0.75);
+  --glass-border:    rgba(20, 41, 35, 0.08);
+  --glass-border-dark: rgba(255, 255, 255, 0.15);
   --glass-blur:      blur(16px);
-  --glass-shadow:    0 8px 40px rgba(44, 26, 14, 0.14);
+  --glass-shadow:    0 8px 40px rgba(20, 41, 35, 0.06);
 
   /* Utility */
-  --white:           #F5EAD8;
-  --ink:             #1E1208;
+  --white:           #FFFFFF;
+  --ink:             #050D0B;
 
   /* Border radius */
   --radius-sm:  0.75rem;
@@ -61,21 +61,21 @@
   --radius-xl:  2.5rem;
 
   /* ─── Soil gradient backgrounds ─────────────────── */
-  --grad-soil-flat:  #E8D4B0;
-  --grad-soil-light: linear-gradient(180deg, #EFE0C5 0%, #E8D4B0 40%, #DBBF97 100%);
+  --grad-soil-flat:  #FAF9F6;
+  --grad-soil-light: linear-gradient(180deg, #FFFFFF 0%, #FAF9F6 40%, #F4F1EA 100%);
   --grad-soil-strata: repeating-linear-gradient(
     180deg,
-    #E8D4B0 0px,  #E8D4B0 48px,
-    #E2CBa5 48px, #E2CBa5 50px,
-    #DBBF97 50px, #DBBF97 96px,
-    #E2CBa5 96px, #E2CBa5 98px
+    #FAF9F6 0px,  #FAF9F6 48px,
+    #F4F1EA 48px, #F4F1EA 50px,
+    #E8E4DA 50px, #E8E4DA 96px,
+    #F4F1EA 96px, #F4F1EA 98px
   );
   --grad-soil-diagonal: repeating-linear-gradient(
     135deg,
-    #E8D4B0 0px,   #E8D4B0 20px,
-    #E0C9A2 20px,  #E0C9A2 21px,
-    #E8D4B0 21px,  #E8D4B0 40px,
-    #CCAA80 40px,  #CCAA80 41px
+    #FAF9F6 0px,   #FAF9F6 20px,
+    #F4F1EA 20px,  #F4F1EA 21px,
+    #FAF9F6 21px,  #FAF9F6 40px,
+    #E5E0D5 40px,  #E5E0D5 41px
   );
 }
 
@@ -197,6 +197,7 @@ h1, h2, h3, h4, .font-serif {
 }
 
 
+/* ===========================
    Kolam Divider
    South Indian rangoli-inspired
    =========================== */

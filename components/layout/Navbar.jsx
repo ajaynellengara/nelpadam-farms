@@ -18,7 +18,8 @@ export default function Navbar() {
       label: "Farmers Stories",
       hasDropdown: true,
       children: [
-        { label: "Govindan Nair", href: "#story", active: true },
+        { label: "Govindan Nair", href: "#story", desc: "3rd gen farmer · Kottarakkara, Kerala", initial: "G" },
+        { label: "Kanyamma", href: "/stories/kanyamma", desc: "Sweet-maker · Kanyakumari, Tamil Nadu", initial: "K" },
       ],
     },
     { label: "Crops", href: "#crops" },
@@ -69,18 +70,20 @@ export default function Navbar() {
                   </svg>
                 </button>
                 {storyOpen && (
-                  <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-cream-deep py-2 min-w-[180px]">
-                    {l.children.map((child) => (
+                  <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-cream-deep py-3 min-w-[240px]">
+                    {l.children.map((child, i) => (
                       <a
                         key={child.label}
                         href={child.href}
-                        className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
-                          child.active
-                            ? "text-leaf bg-leaf-pale/30"
-                            : "text-ink-mid hover:text-ink hover:bg-cream-alt"
-                        }`}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-cream-alt transition-colors border-b border-cream-deep last:border-0"
                       >
-                        {child.label}
+                        <div className="w-9 h-9 rounded-full bg-leaf-pale/50 flex items-center justify-center font-serif font-bold text-leaf text-sm shrink-0">
+                          {child.initial}
+                        </div>
+                        <div>
+                          <div className="text-ink text-sm font-semibold leading-tight">{child.label}</div>
+                          <div className="text-ink-light text-[11px] leading-tight mt-0.5">{child.desc}</div>
+                        </div>
                       </a>
                     ))}
                   </div>
@@ -101,7 +104,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#preorder"
-            className="hidden sm:inline-flex items-center gap-2 bg-leaf text-white text-sm md:text-base font-semibold px-6 py-3 rounded-full hover:bg-leaf-mid transition-all shadow-md"
+            className="btn-primary hidden sm:inline-flex"
           >
             Pre-Order Harvest
           </a>
@@ -127,12 +130,24 @@ export default function Navbar() {
 
       <div className={`md:hidden bg-white/95 backdrop-blur-md border-t border-cream-deep transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-96 shadow-lg" : "max-h-0"}`}>
         <div className="px-6 py-6 flex flex-col gap-4">
-          <div className="text-ink font-semibold py-1 text-base tracking-wide border-b border-cream-alt">
-            <div className="mb-1">Farmers Stories</div>
+          <div className="py-2 border-b border-cream-alt">
+            <div className="text-ink font-semibold text-base tracking-wide mb-2">Farmers Stories</div>
             <a href="#story" onClick={() => setMenuOpen(false)}
-              className="block pl-4 py-2 text-ink-mid font-medium text-sm border-l-2 border-leaf bg-leaf-pale/20 rounded-r">
-              Govindan Nair
+              className="flex items-center gap-3 px-3 py-3 rounded-xl bg-leaf-pale/20 mb-1.5">
+              <div className="w-10 h-10 rounded-full bg-leaf-pale/60 flex items-center justify-center font-serif font-bold text-leaf text-base shrink-0">G</div>
+              <div>
+                <div className="text-ink text-sm font-semibold leading-tight">Govindan Nair</div>
+                <div className="text-ink-light text-[11px] leading-tight mt-0.5">3rd gen farmer · Kottarakkara, Kerala</div>
+              </div>
             </a>
+            <Link href="/stories/kanyamma" onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 px-3 py-3 rounded-xl bg-maroon-pale/20">
+              <div className="w-10 h-10 rounded-full bg-maroon-pale/60 flex items-center justify-center font-serif font-bold text-maroon text-base shrink-0">K</div>
+              <div>
+                <div className="text-ink text-sm font-semibold leading-tight">Kanyamma</div>
+                <div className="text-ink-light text-[11px] leading-tight mt-0.5">Sweet-maker · Kanyakumari, Tamil Nadu</div>
+              </div>
+            </Link>
           </div>
           {links.filter(l => !l.hasDropdown).map((l) => (
             <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
@@ -141,7 +156,7 @@ export default function Navbar() {
             </a>
           ))}
           <a href="#preorder" onClick={() => setMenuOpen(false)}
-            className="bg-leaf text-white text-center font-semibold px-6 py-4 rounded-full mt-2 text-base">
+            className="btn-primary w-full justify-center text-base mt-2">
             Pre-Order Harvest
           </a>
         </div>

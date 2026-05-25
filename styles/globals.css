@@ -26,6 +26,20 @@
 
   --tamarind:       #6B2D0F;
 
+  --rose:           #C84B6B;
+  --rose-mid:       #D96A84;
+  --rose-light:     #E894A8;
+  --rose-pale:      #F8D0DA;
+
+  --saffron:        #D4872A;
+  --saffron-light:  #DFA050;
+  --saffron-pale:   #F5E2C0;
+
+  --maroon:         #8B1A1A;
+  --maroon-mid:     #B83030;
+  --maroon-light:   #D46060;
+  --maroon-pale:    #F5E0E0;
+
   --glass-bg:        rgba(255, 255, 255, 0.75);
   --glass-border:    rgba(0, 0, 0, 0.06);
   --glass-blur:      blur(16px);
@@ -60,6 +74,20 @@
   --color-clay-light: var(--clay-light);
   --color-terracotta: var(--terracotta);
   --color-tamarind:   var(--tamarind);
+
+  --color-rose:       var(--rose);
+  --color-rose-mid:   var(--rose-mid);
+  --color-rose-light: var(--rose-light);
+  --color-rose-pale:  var(--rose-pale);
+
+  --color-saffron:       var(--saffron);
+  --color-saffron-light: var(--saffron-light);
+  --color-saffron-pale:  var(--saffron-pale);
+
+  --color-maroon:       var(--maroon);
+  --color-maroon-mid:   var(--maroon-mid);
+  --color-maroon-light: var(--maroon-light);
+  --color-maroon-pale:  var(--maroon-pale);
 }
 
 html { scroll-behavior: smooth; }
@@ -77,12 +105,18 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .section-heading {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.1;
   color: var(--ink);
 }
+@media (min-width: 640px) {
+  .section-heading { font-size: 2rem; }
+}
 @media (min-width: 768px) {
+  .section-heading { font-size: 2.5rem; }
+}
+@media (min-width: 1024px) {
   .section-heading { font-size: 3.25rem; }
 }
 
@@ -104,14 +138,17 @@ h1, h2, h3, h4, .font-serif {
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: var(--leaf);
   color: white;
   font-weight: 600;
-  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  padding: 0.875rem 1.75rem;
   border-radius: 9999px;
   box-shadow: var(--shadow-cta);
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
@@ -121,17 +158,32 @@ h1, h2, h3, h4, .font-serif {
   transform: scale(0.97);
 }
 
+.btn-lg {
+  font-size: 1rem;
+  padding: 1.25rem 2.5rem;
+}
+
+.btn-sm {
+  font-size: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+}
+
 .btn-outline {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: transparent;
   color: var(--ink);
   font-weight: 600;
-  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  padding: 0.875rem 1.75rem;
   border-radius: 9999px;
   border: 1.5px solid var(--cream-deep);
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 .btn-outline:hover {
   border-color: var(--ink-mid);
@@ -141,13 +193,16 @@ h1, h2, h3, h4, .font-serif {
 .btn-whatsapp {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: #25D366;
   color: white;
   font-weight: 600;
-  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  padding: 0.875rem 1.75rem;
   border-radius: 9999px;
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 .btn-whatsapp:hover {
   transform: translateY(-2px);

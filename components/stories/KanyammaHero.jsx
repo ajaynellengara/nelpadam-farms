@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function OpeningScene() {
+export default function KanyammaHero() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -10,33 +10,26 @@ export default function OpeningScene() {
   }, []);
 
   return (
-    <section className="relative h-screen bg-ink overflow-hidden flex flex-col" id="top">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/hero-farm.png)" }}
-      />
+    <section className="relative h-screen overflow-hidden flex flex-col" id="top">
+      <div className="absolute inset-0 bg-gradient-to-br from-maroon via-maroon-mid to-ink" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/30" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
-
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: '200px' }}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 30 L42 45 L30 35 L18 45 L22 30 L10 20 L25 20 Z' fill='white' opacity='0.3'/%3E%3C/svg%3E")`, backgroundSize: '60px' }}
       />
 
       <div className="h-16 md:h-20" />
 
-      {/* Farmer address strip */}
       <div className="bg-white/10 backdrop-blur-md border-y border-white/5">
         <div className="max-w-6xl mx-auto px-6 lg:px-16 py-2 md:py-2.5 flex flex-wrap items-center gap-x-6 gap-y-1 text-white/70 text-xs md:text-sm">
           <span className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-leaf-light" />
-            <span className="text-white/90 font-semibold">Govindan Nair</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+            <span className="text-white/90 font-semibold">Kanyamma</span>
           </span>
-          <span>Kottarakkara, Kerala</span>
-          <span>3.5 acres</span>
-          <span>Est. 1976</span>
+          <span>Kanyakumari, Tamil Nadu</span>
+          <span>Traditional sweets</span>
           <span className="text-white/40 hidden sm:inline">·</span>
-          <span className="text-white/40 text-[10px] tracking-wide">More farmers →</span>
+          <span className="text-white/40 text-[10px] tracking-wide">Home kitchen →</span>
         </div>
       </div>
 
@@ -47,28 +40,28 @@ export default function OpeningScene() {
           }`}
         >
           <h1 className="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-5">
-            Somewhere in Kerala — <span className="text-gold-light italic">a farmer</span>
+            From a kitchen in <span className="text-gold italic">Kanyakumari</span>
             <br />
-            is growing your next meal.
+            comes the taste of tradition.
           </h1>
 
           <p className="text-white/70 text-base leading-relaxed mb-6 max-w-lg">
-            He tends pepper, tamarind, and turmeric on the same plot
-            his grandfather cleared in 1948 — no middlemen, no superstores.
+            Kanyamma prepares mundirikothu, athirasa, and other traditional sweets
+            the way her mother taught her — no machines, no preservatives, just love.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="#crops"
+              href="#kanyamma-crops"
               className="btn-primary bg-gold text-ink hover:bg-gold-light shadow-lg"
             >
-              Pre-Order This Season&apos;s Harvest →
+              Pre-Order Traditional Sweets →
             </a>
             <a
-              href="#story"
+              href="#kanyamma-story"
               className="btn-outline border-white/20 text-white/80 hover:bg-white/10 hover:text-white hover:border-white/40"
             >
-              Read Govindan&apos;s Story
+              Read Kanyamma&apos;s Story
             </a>
           </div>
         </div>

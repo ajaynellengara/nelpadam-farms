@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+  <rect width="600" height="800" fill="#F8D0DA"/>
+  <circle cx="300" cy="280" r="120" fill="#C84B6B" opacity="0.3"/>
+  <circle cx="300" cy="280" r="90" fill="#C84B6B" opacity="0.5"/>
+  <text x="300" y="300" font-family="Georgia, serif" font-size="80" fill="white" text-anchor="middle" font-weight="bold">K</text>
+  <rect x="150" y="480" width="300" height="200" rx="16" fill="white" opacity="0.6"/>
+  <text x="300" y="540" font-family="Georgia, serif" font-size="32" fill="#1C1816" text-anchor="middle" font-weight="bold">Kanyamma</text>
+  <text x="300" y="590" font-family="sans-serif" font-size="16" fill="#5A524A" text-anchor="middle">Traditional Sweets Maker</text>
+  <text x="300" y="630" font-family="sans-serif" font-size="14" fill="#8B8278" text-anchor="middle">Kanyakumari, Tamil Nadu</text>
+</svg>

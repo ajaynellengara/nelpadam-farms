@@ -1,27 +1,26 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/data/products";
+import { kanyammaProducts } from "@/data/products";
 
-export default function ProductsSlider() {
+export default function KanyammaProducts() {
   return (
-    <section id="crops" className="py-16 md:py-24 lg:py-32 bg-cream overflow-hidden">
+    <section id="kanyamma-crops" className="py-16 md:py-24 lg:py-32 bg-cream overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
         <div className="flex items-center gap-4 mb-4">
           <span className="section-sub">Chapter 02</span>
-          <span className="w-8 h-px bg-clay/30" />
-          <h2 className="section-heading">Pre-Order the Harvest</h2>
+          <span className="w-8 h-px bg-maroon/30" />
+          <h2 className="section-heading">Pre-Order the Sweets</h2>
         </div>
 
         <p className="text-ink-mid text-base mb-12 max-w-xl">
-          These crops are growing right now on Govindan&apos;s land. Pre-order your share — he harvests, packs, and ships directly when ready.
+          Pre-order your favourite sweets — Kanyamma prepares them fresh only after you order. Zero wastage, zero tension, and the same traditional taste every time.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <Link
+          {kanyammaProducts.map((product) => (
+            <a
               key={product.slug}
-              href={`/products/${product.slug}`}
+              href={`#kanyamma-reserve`}
               className="group block rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 bg-white"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -38,9 +37,6 @@ export default function ProductsSlider() {
                   <span className="bg-white/90 backdrop-blur-sm text-ink text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
                     {product.badge}
                   </span>
-                  <span className="bg-white/90 backdrop-blur-sm text-ink-mid text-[10px] font-semibold px-2.5 py-1 rounded-full">
-                    ⏳ {product.harvestMonths}mo
-                  </span>
                 </div>
               </div>
 
@@ -48,7 +44,7 @@ export default function ProductsSlider() {
                 <div className="text-ink-light text-[10px] font-semibold tracking-wider uppercase mb-0.5">
                   {product.localName}
                 </div>
-                <h3 className="font-serif text-xl font-bold text-ink mb-1 group-hover:text-leaf transition-colors">
+                <h3 className="font-serif text-xl font-bold text-ink mb-1 group-hover:text-maroon transition-colors">
                   {product.name}
                 </h3>
                 <p className="text-ink-light text-xs leading-relaxed line-clamp-2 mb-3">
@@ -61,21 +57,21 @@ export default function ProductsSlider() {
                     <div className="text-ink-pale text-[10px]">{product.unit}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-leaf text-xs font-bold">{product.preorderCount}</div>
-                    <div className="text-ink-pale text-[10px]">pre-ordered</div>
+                    <div className="text-maroon text-xs font-bold">{product.preorderCount}</div>
+                    <div className="text-ink-pale text-[10px]">ordered</div>
                   </div>
                 </div>
 
-                <div className="mt-3 btn-sm text-center transition-all duration-300 bg-cream-alt text-ink-mid group-hover:bg-leaf group-hover:text-white">
+                <div className="mt-3 btn-sm text-center transition-all duration-300 bg-cream-alt text-ink-mid group-hover:bg-maroon group-hover:text-white">
                   Pre-Order Now →
                 </div>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
 
         <p className="text-center text-ink-light text-xs mt-8 italic">
-          * No advance payment. You pay only when Govindan ships your harvest.
+          * Pre-order now, pay only when dispatched. Kanyamma prepares fresh after your order — zero wastage.
         </p>
       </div>
     </section>

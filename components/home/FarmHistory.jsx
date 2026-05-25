@@ -3,7 +3,7 @@ import { chapters, farmer } from "@/data/products";
 
 export default function FarmHistory() {
   return (
-    <section id="story" className="py-24 lg:py-32 bg-cream-alt overflow-hidden">
+    <section id="story" className="py-16 md:py-24 lg:py-32 bg-cream-alt overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
         <div className="flex items-center gap-4 mb-16">
           <span className="section-sub">Chapter 01</span>

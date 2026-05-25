@@ -151,6 +151,150 @@ export const impactStats = [
   { number: "48", label: "Years Govindan has farmed this land" },
 ];
 
+export const kanyammaProducts = [
+  {
+    slug: "mundirikothu",
+    name: "Mundirikothu",
+    localName: "முந்திரிக்கொத்து",
+    tagline: "Crisp Rice Flour Delight",
+    shortDesc: "Diamond-shaped rice flour crisps, shallow-fried to golden perfection. A Kanyakumari tea-time favourite.",
+    description:
+      "Made from finely ground rice flour, seasoned with cumin and asafoetida, rolled thin and cut into diamond shapes before being shallow-fried to a crisp golden brown. Kanyamma prepares them in small batches to ensure every piece is perfectly crunchy.",
+    price: "₹120",
+    unit: "250g pack",
+    variants: [
+      { label: "250g", price: "₹120" },
+      { label: "500g", price: "₹220" },
+    ],
+    status: "available",
+    badge: "Made to Order",
+    image: "/images/mundirikothu.svg",
+    color: "#8B1A1A",
+    bgColor: "#F5E0E0",
+    emoji: "🥟",
+    preorderCount: 28,
+    category: "Savory Snack",
+    benefits: ["All-natural ingredients", "No preservatives", "Stays fresh for weeks"],
+    whatsappMsg:
+      "Vanakkam Kanyamma! I'd like to order Mundirikothu from Nelpadam Farms. Please share availability and pricing.",
+  },
+  {
+    slug: "athirasa",
+    name: "Athirasa",
+    localName: "அதிரசம்",
+    tagline: "Traditional Jaggery Pancake",
+    shortDesc: "Deep-fried jaggery-and-rice pancake, a festival essential in every Tamil home.",
+    description:
+      "Athirasa is made from a fermented batter of rice and jaggery, spiced with cardamom and dry ginger, then deep-fried into thick, chewy pancakes with a caramelised crust. Kanyamma's version uses palm jaggery for a deeper, earthier sweetness.",
+    price: "₹150",
+    unit: "6 pieces",
+    variants: [
+      { label: "6 pieces", price: "₹150" },
+      { label: "12 pieces", price: "₹280" },
+    ],
+    status: "available",
+    badge: "Festival Special",
+    image: "/images/athirasa.svg",
+    color: "#C89B3C",
+    bgColor: "#F5EAC8",
+    emoji: "🫓",
+    preorderCount: 43,
+    category: "Sweet",
+    benefits: ["Palm jaggery sweetness", "Fermented naturally", "No refined sugar"],
+    whatsappMsg:
+      "Vanakkam Kanyamma! I'd like to order Athirasa from Nelpadam Farms. Please share availability and pricing.",
+  },
+  {
+    slug: "kanyakumari-mixture",
+    name: "Kanyakumari Mixture",
+    localName: "கன்னியாகுமரி மிக்சர்",
+    tagline: "Spicy Temple-Town Mix",
+    shortDesc: "A crunchy medley of fried gram, peanuts, curry leaves and spices — a Kanyakumari specialty.",
+    description:
+      "This mixture is Kanyamma's most-loved savoury snack. Roasted gram, peanuts, broken cashews, and fresh curry leaves are tempered with mustard, red chilli, and hing, then tossed with thin sev. Every batch is made fresh and packed while still warm.",
+    price: "₹100",
+    unit: "200g pack",
+    variants: [
+      { label: "200g", price: "₹100" },
+      { label: "500g", price: "₹220" },
+    ],
+    status: "available",
+    badge: "Popular",
+    image: "/images/kanyakumari-mixture.svg",
+    color: "#B83030",
+    bgColor: "#F5E0E0",
+    emoji: "🥜",
+    preorderCount: 36,
+    category: "Savory Snack",
+    benefits: ["Kanyakumari family recipe", "Hand-roasted spices", "No MSG"],
+    whatsappMsg:
+      "Vanakkam Kanyamma! I'd like to order Kanyakumari Mixture from Nelpadam Farms. Please share availability and pricing.",
+  },
+  {
+    slug: "pal-boli",
+    name: "Pal Boli",
+    localName: "பால் போளி",
+    tagline: "Sweet Milk Dumplings",
+    shortDesc: "Soft, stuffed puris soaked in sweetened reduced milk — a festive indulgence.",
+    description:
+      "Pal Boli is a traditional Tamil sweet where soft wheat flour puris are stuffed with a lentil-and-jaggery filling, then soaked in thick, sweetened reduced milk infused with cardamom and saffron. Kanyamma makes them fresh for special orders — each bite is pure comfort.",
+    price: "₹180",
+    unit: "4 pieces",
+    variants: [
+      { label: "4 pieces", price: "₹180" },
+      { label: "8 pieces", price: "₹340" },
+    ],
+    status: "available",
+    badge: "Premium",
+    image: "/images/pal-boli.svg",
+    color: "#C89B3C",
+    bgColor: "#FDF0D6",
+    emoji: "🥞",
+    preorderCount: 19,
+    category: "Sweet",
+    benefits: ["Saffron-infused milk", "Hand-stuffed filling", "Made on order only"],
+    whatsappMsg:
+      "Vanakkam Kanyamma! I'd like to order Pal Boli from Nelpadam Farms. Please share availability and pricing.",
+  },
+];
+
+export const kanyamma = {
+  name: "Kanyamma",
+  detail: "Home-producer of traditional sweets · Kanyakumari, Tamil Nadu",
+  village: "Kanyakumari Dstct, Tamil Nadu",
+  quote:
+    "My mother taught me these recipes. Now the whole village comes to me for athirasa during festivals. I never thought city people would also want to taste them.",
+  emoji: "🍬",
+};
+
+export const producers = [
+  { id: "govindan", name: "Govindan Nair", type: "Farmer", village: "Kottarakkara, Kerala", whatsApp: "918301061753", displayPhone: "+91 83010 61753" },
+  { id: "kanyamma", name: "Kanyamma", type: "Sweet-maker", village: "Kanyakumari, Tamil Nadu", whatsApp: "918301061753", displayPhone: "+91 83010 61753" },
+];
+
+export const kanyammaChapters = [
+  {
+    number: "01",
+    title: "The Tradition",
+    body: "In a small home in Kanyakumari district, Kanyamma continues a legacy of traditional sweet-making passed down through generations. Her kitchen is filled with the aroma of jaggery, coconut, and rice flour — the same ingredients her mother and grandmother used.",
+  },
+  {
+    number: "02",
+    title: "The Specialties",
+    body: "Her mundirikothu — crisp, diamond-shaped rice flour crisps — and athirasa, a deep-fried jaggery pancake, are village favourites. Every batch is made by hand, with no preservatives or machines. Just time-honoured recipes and fresh ingredients.",
+  },
+  {
+    number: "03",
+    title: "Her Kitchen, Her Business",
+    body: "What started as making sweets for family festivals has grown into a small home enterprise. Kanyamma now prepares extra batches for her neighbours and nearby villagers who place orders for weddings, festivals, and special occasions.",
+  },
+  {
+    number: "04",
+    title: "How Nelpadam Helps",
+    body: "Nelpadam Farms showcases her story and connects her sweets with customers who value authentic, homemade traditional foods. Every order we bring her means one more reason to keep these recipes alive — and one more source of income for her family.",
+  },
+];
+
 export const chapters = [
   {
     number: "01",

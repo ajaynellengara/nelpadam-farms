@@ -11,8 +11,12 @@ export default function KanyammaHero() {
 
   return (
     <section className="relative h-screen overflow-hidden flex flex-col" id="top">
-      <div className="absolute inset-0 bg-gradient-to-br from-maroon via-maroon-mid to-ink" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/kanyamma-hero-banner.png)" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
 
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 30 L42 45 L30 35 L18 45 L22 30 L10 20 L25 20 Z' fill='white' opacity='0.3'/%3E%3C/svg%3E")`, backgroundSize: '60px' }}

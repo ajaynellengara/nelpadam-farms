@@ -17,7 +17,7 @@ export default function KanyammaPage() {
           id="kanyamma-story"
           farmer={kanyamma}
           chapters={kanyammaChapters}
-          imageSrc="/images/kanyamma.svg"
+          imageSrc="/images/kanyamma.png"
           chapterLabel="Chapter 01"
           heading="Meet Kanyamma"
           storyIntro="Not everyone who sustains tradition is a farmer. Kanyamma keeps the taste of Kanyakumari alive — one sweet at a time, from her home kitchen to your table."
